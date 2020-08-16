@@ -1,11 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+
 import Login from './src/pages/Login';
-import Register from './src/pages/Register';
+import Detail from './src/pages/Detail';
+
 export default function App() {
   return (
     <View style={styles.container}>
-      <Register />
+      <Detail />
     </View>
   );
 }
