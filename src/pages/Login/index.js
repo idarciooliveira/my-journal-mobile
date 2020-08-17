@@ -10,45 +10,45 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
 
-const Login = () => {
+const Login = ({ navigation }) => {
   return (
     <KeyboardAvoidingView>
-      <SafeAreaView style={styles.container}>
-        <View>
-          <View style={styles.app}>
-            <View style={styles.separator}>
-              <Image
-                style={styles.logo}
-                source={require('../../assets/logo.png')}
-              />
-            </View>
-            <Text style={styles.title}>My Journal</Text>
-          </View>
-          <TextInput style={styles.input} placeholder='Digite o seu username' />
-          <TextInput
-            style={styles.input}
-            placeholder='Digite o seu password'
-            textContentType={'password'}
-          />
+      <View>
+        <View style={styles.app}>
           <View style={styles.separator}>
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>Sign In</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>Sign Up</Text>
-            </TouchableOpacity>
+            <Image
+              style={styles.logo}
+              source={require('../../assets/logo.png')}
+            />
           </View>
+          <Text style={styles.title}>My Journal</Text>
         </View>
-      </SafeAreaView>
+        <TextInput style={styles.input} placeholder='Digite o seu username' />
+        <TextInput
+          style={styles.input}
+          placeholder='Digite o seu password'
+          textContentType={'password'}
+        />
+        <View style={styles.separator}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate('Home')}
+          >
+            <Text style={styles.buttonText}>Sign In</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate('Register')}
+          >
+            <Text style={styles.buttonText}>Sign Up</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     </KeyboardAvoidingView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    margin: 5,
-  },
   app: {
     marginBottom: 50,
     marginTop: 50,
@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     margin: 5,
     fontSize: 16,
+    alignSelf: 'center',
   },
   separator: {
     marginTop: 20,

@@ -9,11 +9,12 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Constants from 'expo-constants';
-const Home = () => {
+
+const Home = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
-        <TouchableOpacity onPress={() => alert('Noticia')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Detail')}>
           <View style={styles.card}>
             <Text style={styles.title}>
               As melhores Linguagens de programação para se começar em 2020
@@ -24,8 +25,7 @@ const Home = () => {
             />
           </View>
         </TouchableOpacity>
-
-        <TouchableOpacity onPress={() => alert('Noticia')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Detail')}>
           <View style={styles.card}>
             <Text style={styles.title}>
               As melhores Linguagens de programação para se começar em 2020
@@ -36,41 +36,7 @@ const Home = () => {
             />
           </View>
         </TouchableOpacity>
-
-        <TouchableOpacity onPress={() => alert('Noticia')}>
-          <View style={styles.card}>
-            <Text style={styles.title}>
-              As melhores Linguagens de programação para se começar em 2020
-            </Text>
-            <Image
-              style={styles.thumb}
-              source={require('../../assets/thumb.jpg')}
-            />
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => alert('Noticia')}>
-          <View style={styles.card}>
-            <Text style={styles.title}>
-              As melhores Linguagens de programação para se começar em 2020
-            </Text>
-            <Image
-              style={styles.thumb}
-              source={require('../../assets/thumb.jpg')}
-            />
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => alert('Noticia')}>
-          <View style={styles.card}>
-            <Text style={styles.title}>
-              As melhores Linguagens de programação para se começar em 2020
-            </Text>
-            <Image
-              style={styles.thumb}
-              source={require('../../assets/thumb.jpg')}
-            />
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => alert('Noticia')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Detail')}>
           <View style={styles.card}>
             <Text style={styles.title}>
               As melhores Linguagens de programação para se começar em 2020

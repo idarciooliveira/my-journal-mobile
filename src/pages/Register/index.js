@@ -10,10 +10,10 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
 
-const Register = () => {
+const Register = ({ navigation }) => {
   return (
     <KeyboardAvoidingView>
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView>
         <View>
           <View style={styles.app}>
             <View style={styles.separator}>
@@ -36,10 +36,16 @@ const Register = () => {
             textContentType={'password'}
           />
           <View style={styles.separator}>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => navigation.navigate('Home')}
+            >
               <Text style={styles.buttonText}>Sign Up</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => navigation.navigate('Login')}
+            >
               <Text style={styles.buttonText}>Sign In</Text>
             </TouchableOpacity>
           </View>
@@ -50,10 +56,6 @@ const Register = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    margin: 5,
-  },
   app: {
     marginBottom: 50,
     marginTop: 50,
@@ -76,6 +78,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     margin: 5,
     fontSize: 16,
+    alignSelf: 'center',
   },
   separator: {
     marginTop: 20,
