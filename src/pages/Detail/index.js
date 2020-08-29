@@ -1,11 +1,18 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 import Constants from 'expo-constants';
 
 const Detail = () => {
   return (
     <ScrollView style={styles.container}>
-      <View>
+      <View style={styles.contentContainer}>
         <Text style={styles.title}>
           As melhores Linguagens de programação para se começar em 2020 e as
           ferramentas de trabalho que visam melhoram a sua vida profissional
@@ -38,6 +45,12 @@ const Detail = () => {
           mil US$ em investimentos!
         </Text>
       </View>
+      <View>
+        <TouchableOpacity style={styles.footer}>
+          <Text style={styles.footerText}>Comentaruio</Text>
+          <Text style={styles.footerText}>Idarcio Oliveira</Text>
+        </TouchableOpacity>
+      </View>
     </ScrollView>
   );
 };
@@ -49,25 +62,38 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   title: {
-    fontSize: 16,
-    margin: 5,
+    fontSize: 20,
+    marginTop: 20,
+    margin: 15,
     fontWeight: 'bold',
   },
   releaseDate: {
-    fontSize: 12,
-    margin: 5,
+    fontSize: 16,
+    margin: 15,
     color: '#47A5EF',
+    marginBottom: 20,
   },
   content: {
     fontSize: 16,
-    margin: 5,
+    margin: 15,
     textAlign: 'justify',
   },
   thumb: {
     width: 400,
     height: 210,
     alignSelf: 'center',
-    marginBottom: 20,
+    marginBottom: 10,
+  },
+  footer: {
+    height: 50,
+    flexDirection: 'row',
+    alignSelf: 'stretch',
+    backgroundColor: '#f0f0f0',
+  },
+  footerText: {
+    margin: 5,
+    padding: 5,
+    fontSize: 16,
   },
 });
 
