@@ -23,11 +23,44 @@ const Home = ({ navigation }) => {
               </Text>
               <View style={styles.realeaseContainer}>
                 <Text style={styles.realeaseDate}>24/08/2020</Text>
-                <Text style={styles.category}>Tecnologia</Text>
+                <Text style={styles.category}>Educação</Text>
               </View>
               <Image
                 style={styles.thumb}
                 source={require('../../assets/thumb.jpg')}
+              />
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Detail')}>
+            <View style={styles.card}>
+              <Text style={styles.title}>
+                Tecnofarma, uma plataforma que promete revolucionar o sistema de
+                saúde em Angola
+              </Text>
+              <View style={styles.realeaseContainer}>
+                <Text style={styles.realeaseDate}>24/08/2020</Text>
+                <Text style={styles.category}>Tecnologia</Text>
+              </View>
+              <Image
+                style={styles.thumb}
+                source={require('../../assets/tecnofarma.jpg')}
+              />
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Detail')}>
+            <View style={styles.card}>
+              <Text style={styles.title}>
+                Governo começa com a preparação para o lançamento do sistema
+                governamental que vai melhorar o controle e a distribuição no
+                território nacional
+              </Text>
+              <View style={styles.realeaseContainer}>
+                <Text style={styles.realeaseDate}>24/08/2020</Text>
+                <Text style={styles.category}>Tecnologia</Text>
+              </View>
+              <Image
+                style={styles.thumb}
+                source={require('../../assets/SIGP.png')}
               />
             </View>
           </TouchableOpacity>

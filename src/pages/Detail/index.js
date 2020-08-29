@@ -12,16 +12,19 @@ import Constants from 'expo-constants';
 const Detail = () => {
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.contentContainer}>
+      <View style={styles.header}>
         <Text style={styles.title}>
-          As melhores Linguagens de programação para se começar em 2020 e as
-          ferramentas de trabalho que visam melhoram a sua vida profissional
+          Governo começa com a preparação para o lançamento do sistema
+          governamental que vai melhorar o controle e a distribuição no
+          território nacional
         </Text>
-        <Text style={styles.releaseDate}>Publicada 15/10/2020</Text>
-        <Image
-          style={styles.thumb}
-          source={require('../../assets/thumb.jpg')}
-        />
+        <View style={styles.realeaseContainer}>
+          <Text style={styles.realeaseDate}>Publicada 24/08/2020</Text>
+          <Text style={styles.category}>Tecnologia</Text>
+        </View>
+      </View>
+      <Image style={styles.thumb} source={require('../../assets/SIGP.png')} />
+      <View>
         <Text style={styles.content}>
           Se por algum motivo não conseguiu finalizar a sua candidatura para o
           Seedstars Luanda 2020, temos boas notícias para si, a organização do
@@ -45,11 +48,12 @@ const Detail = () => {
           mil US$ em investimentos!
         </Text>
       </View>
-      <View>
-        <TouchableOpacity style={styles.footer}>
-          <Text style={styles.footerText}>Comentaruio</Text>
-          <Text style={styles.footerText}>Idarcio Oliveira</Text>
-        </TouchableOpacity>
+      <View style={styles.footer}>
+        <Image
+          style={styles.authorImage}
+          source={require('../../assets/profile.jpg')}
+        />
+        <Text style={styles.footerText}>Idarcio Oliveira</Text>
       </View>
     </ScrollView>
   );
@@ -59,41 +63,78 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: Constants.statusBarHeight,
-    backgroundColor: 'white',
+    backgroundColor: '#FFF',
+  },
+  header: {
+    margin: 5,
+    padding: 10,
   },
   title: {
     fontSize: 20,
-    marginTop: 20,
-    margin: 15,
-    fontWeight: 'bold',
-  },
-  releaseDate: {
-    fontSize: 16,
-    margin: 15,
-    color: '#47A5EF',
-    marginBottom: 20,
-  },
-  content: {
-    fontSize: 16,
-    margin: 15,
     textAlign: 'justify',
+    margin: 5,
+    height: 'auto',
+    fontWeight: 'bold',
   },
   thumb: {
     width: 400,
-    height: 210,
+    height: 280,
+    margin: 5,
+    backgroundColor: 'red',
     alignSelf: 'center',
+    resizeMode: 'stretch',
+  },
+  realeaseContainer: {
+    flex: 1,
+    height: 'auto',
     marginBottom: 10,
+    marginTop: 10,
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+  },
+  realeaseDate: {
+    fontSize: 18,
+    width: 'auto',
+    borderRadius: 5,
+    padding: 5,
+    color: '#46A3F0',
+    textAlign: 'center',
+  },
+  category: {
+    backgroundColor: '#000000',
+    fontSize: 14,
+    width: 'auto',
+    borderRadius: 5,
+    marginLeft: 5,
+    padding: 5,
+    color: '#FFF',
+    marginTop: 5,
+    textAlign: 'center',
+  },
+  content: {
+    textAlign: 'justify',
+    margin: 10,
+    padding: 10,
+    fontSize: 18,
   },
   footer: {
-    height: 50,
+    flex: 1,
+    backgroundColor: '#E4E4E4',
+    height: 60,
     flexDirection: 'row',
-    alignSelf: 'stretch',
-    backgroundColor: '#f0f0f0',
+    justifyContent: 'space-around',
+    padding: 10,
+    alignItems: 'center',
   },
   footerText: {
-    margin: 5,
-    padding: 5,
-    fontSize: 16,
+    fontSize: 18,
+    color: 'grey',
+  },
+  authorImage: {
+    resizeMode: 'center',
+    borderRadius: 5,
+    width: 40,
+    height: 40,
   },
 });
 
