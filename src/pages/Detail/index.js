@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -6,10 +6,18 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
+  Modal,
 } from 'react-native';
+import { Feather as Icon } from '@expo/vector-icons';
 import Constants from 'expo-constants';
 
 const Detail = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  function handleAuthorInfo() {
+    setModalVisible(true);
+  }
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
@@ -48,13 +56,49 @@ const Detail = () => {
           mil US$ em investimentos!
         </Text>
       </View>
-      <View style={styles.footer}>
+      <TouchableOpacity
+        style={styles.footer}
+        onPress={() => handleAuthorInfo()}
+      >
         <Image
           style={styles.authorImage}
           source={require('../../assets/profile.jpg')}
         />
         <Text style={styles.footerText}>Idarcio Oliveira</Text>
-      </View>
+      </TouchableOpacity>
+      <Modal
+        animationType='none'
+        transparent={true}
+        presentationStyle='overFullScreen'
+        visible={modalVisible}
+      >
+        <View style={styles.modal}>
+          <View style={styles.modalContent}>
+            <Image
+              style={styles.modalAuthorImage}
+              source={require('../../assets/profile.jpg')}
+            />
+            <Text style={styles.modalAuthorName}>Idarcio Oliveira</Text>
+            <Text style={styles.modalAuthorDescription}>
+              Se por algum motivo não conseguiu finalizar a sua candidatura para
+              o Seedstars Luanda 2020, temos boas notícias para si, a
+              organização do evento decidiu permitir inscrições até ao final do
+              dia (15 de Agosto). SEEDSTARS WORLD LUANDA 2020 – ONLINE
+              Inscrições: Startups de todo o país serão convidadas a participar
+              da competição deste ano. Com o evento online, todas as startups
+              têm acesso
+            </Text>
+            <Icon
+              name='x-circle'
+              onPress={() => {
+                setModalVisible(false);
+              }}
+              size={40}
+              color={'#46A3F0'}
+            />
+          </View>
+        </View>
+      </Modal>
     </ScrollView>
   );
 };
@@ -80,7 +124,6 @@ const styles = StyleSheet.create({
     width: 400,
     height: 280,
     margin: 5,
-    backgroundColor: 'red',
     alignSelf: 'center',
     resizeMode: 'stretch',
   },
@@ -120,7 +163,7 @@ const styles = StyleSheet.create({
   footer: {
     flex: 1,
     backgroundColor: '#E4E4E4',
-    height: 60,
+    height: 50,
     flexDirection: 'row',
     justifyContent: 'space-around',
     padding: 10,
@@ -135,6 +178,45 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     width: 40,
     height: 40,
+  },
+  modal: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalContent: {
+    height: 'auto',
+    width: 300,
+    margin: 5,
+    backgroundColor: '#FFF',
+    borderRadius: 20,
+    padding: 10,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  modalAuthorImage: {
+    resizeMode: 'center',
+    borderRadius: 5,
+    height: 140,
+  },
+  modalAuthorName: {
+    fontSize: 20,
+    marginTop: 5,
+    fontWeight: 'bold',
+  },
+  modalAuthorDescription: {
+    fontSize: 16,
+    padding: 5,
+    margin: 5,
+    textAlign: 'justify',
+    marginBottom: 5,
   },
 });
 
